@@ -14,8 +14,8 @@ class Config:
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=30)
 
-    # # Configurações do Redis
-    # REDIS_HOST = os.getenv("REDIS_HOST", "redis")
-    # REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
-    # REDIS_DB = int(os.getenv("REDIS_DB", 0))
-    # PRODUCT_QUEUE = os.getenv("PRODUCT_QUEUE", "product_queue")
+    # Configurações do Redis
+    REDIS_HOST = os.getenv("REDIS_HOST", "redis")
+    REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+    REDIS_DB = int(os.getenv("REDIS_DB", 0))
+    PRODUCT_QUEUE = os.getenv("PRODUCT_QUEUE", "product_queue")

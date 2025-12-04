@@ -1,12 +1,4 @@
-# Backend files
-.env
-venv
-.vscode
-__pycache__/
-*.pyc
-.DS_Store
-
-# Frontend files
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
 /dist
@@ -14,7 +6,7 @@ __pycache__/
 /out-tsc
 /bazel-out
 
-# Node modules
+# Node
 /node_modules
 npm-debug.log
 yarn-error.log
@@ -27,6 +19,8 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -45,30 +39,4 @@ testem.log
 
 # System files
 .DS_Store
-Thumbs.db
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Build files
-*.js.map
-*.css.map
-
-# Log files
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-.pnpm-debug.log*
-
-# OS files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db

@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  flask:
+    build: ./backend
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/app/.env
+    volumes:
+      - ./backend:/app
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: python run.py
+    working_dir: /app
+
+  worker:
+    build: ./backend
+    container_name: flask-worker
+    env_file:
+      - ./backend/app/.env
+    volumes:
+      - ./backend:/app
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: python -u worker.py
+    working_dir: /app
+
+  angular:
+    build: ./frontend
+    container_name: angular-app
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm start -- --host 0.0.0.0 --poll 2000
+    working_dir: /app
+
+volumes:
+  redis_data:
