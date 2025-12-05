@@ -130,7 +130,7 @@ CREATE DATABASE techsolutions;
 -- Criar tabelas (serão criadas automaticamente pelo Flask)
 ```
 
-### 2. Configurar variáveis de ambiente
+### 2. Configurar variáveis de ambiente (caso queira alterar)
 
 Criar arquivo `.env` em `backend/app/.env`:
 
